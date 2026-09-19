@@ -28,10 +28,10 @@ export async function POST(req: Request) {
       { message: "Form submitted successfully" },
       { status: 200 }
     );
-  } catch (err) {
+  } catch (err: any) {
     console.error(err);
     return NextResponse.json(
-      { message: "Error submitting form" },
+      { message: err?.message || "Error submitting form" },
       { status: 500 }
     );
   }
